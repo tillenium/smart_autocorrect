@@ -8,6 +8,9 @@ To use this application in development:
 
 1. clone it
 
+prerequisite:
+
+- ruby 2.2.1
 
 run following commands in your cloned application directory.
 
