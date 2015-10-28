@@ -1,0 +1,20 @@
+<%= form_for(@dictionary) do |f| %>
+Word:  <%= f.text_field :word %> <br/><br/>
+
+Meaning:      <%= f.text_field :meaning %>
+
+<% if @dictionary.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dictionary.errors.count, "error") %> prohibited this dictionary from being saved:</h2>
+      <ul>
+      <% @dictionary.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
