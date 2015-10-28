@@ -67,7 +67,6 @@ class DictionariesController < ApplicationController
   end
 
   def check_words
-    p params
     words = params['input'].split
     array = []
     words.each do |word|
@@ -76,7 +75,7 @@ class DictionariesController < ApplicationController
         dict.increase_word_count 1
         array.push word
       else
-        probable_words = Dictionary.probable_words(word)[1..5]
+        probable_words = Dictionary.probable_words(word)[0..4]
         if probable_words.present?
           array.push "\n<autocorrect>"+probable_words.join("</autocorrect>\n<autocorrect>") + "</autocorrect>\n"
         else

@@ -13,9 +13,11 @@
 <br/>
 <textarea class="form-control" id="input" rows="3"></textarea>
 <br/>
-<button type="submit" id="submit-button" class="btn btn-default" style="align:center">Submit</button>
+<button type="submit" id="submit-button" class="btn btn-default" style="align:center">Check</button>
 <br/><br/><br/>
 <textarea class="form-control" id="output" rows="3"></textarea>
+<br/><br/>
+<%= link_to 'add_new_word', '/dictionaries/new' %>
 
 <script>
     $( "#submit-button" ).click(function() {
