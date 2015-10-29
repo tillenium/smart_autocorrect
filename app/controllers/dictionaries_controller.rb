@@ -70,12 +70,12 @@ class DictionariesController < ApplicationController
     words = params['input'].split
     array = []
     words.each do |word|
-      dict = Dictionary.is_word_present? word
+      dict = Dictionary.is_word_present? word.downcase
       if dict.present?
         dict.increase_word_count 1
         array.push word
       else
-        probable_words = Dictionary.probable_words(word)[0..4]
+        probable_words = Dictionary.probable_words(word.downcase)[0..4]
         if probable_words.present?
           array.push "\n<autocorrect>"+probable_words.join("</autocorrect>\n<autocorrect>") + "</autocorrect>\n"
         else
